@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: main-service
+  security:
+    user:
+      name: admin
+      password: Password1
+  cloud:
+    config:
+      server:
+        git:
+          uri: http://github.com/bayukrs/main-service
+          clone-on-start: true
+server:
+  port: 8761
+
+eureka:
+  instance:
+    statusPageUrlPath: /health
+    healthCheckUrlPath: /info
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    register-with-eureka: false
+    fetch-registry: false
